@@ -2,7 +2,7 @@
 using namespace std;
 #define ll long long int
 
-void dfs(vector<vector<char>>& board, string word, int i, int j, int k, int &check)
+void dfs(vector<string>& board, string word, int i, int j, int k, int &check)
 {
 	if (i<0 or j<0 or i >= board.size() or j >= board[0].size()  or  k >= word.size()) return;
 	if (board[i][j] != word[k]) return;
@@ -12,15 +12,25 @@ void dfs(vector<vector<char>>& board, string word, int i, int j, int k, int &che
 	dfs(board, word, i - 1, j, k + 1, check);
 	dfs(board, word, i, j + 1, k + 1, check);
 	dfs(board, word, i, j - 1, k + 1, check);
+	dfs(board, word, i + 1, j + 1, k + 1, check);
+	dfs(board, word, i - 1, j - 1, k + 1, check);
+	dfs(board, word, i - 1, j + 1, k + 1, check);
+	dfs(board, word, i + 1, j - 1, k + 1, check);
 	board[i][j] = word[k];
-
 }
 int main()
 {
 
-	vector<vector<char>> board = {{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}};
-	string word = "ABCCED";
+	vector<string> board = {"BBABBM",
+	                        "CBMBBA",
+	                        "IBABBG",
+	                        "GOZBBI",
+	                        "ABBBBC",
+	                        "MCIGAM"
+	                       };
+	string word = "MAGIC";
 	int isTrue = false;
+	vector<vector<int>>ans;
 	for (int i = 0; i < board.size(); i++)
 	{
 		for (int j = 0; j < board[0].size(); j++)
@@ -29,12 +39,19 @@ int main()
 			{
 				int check = false;
 				dfs(board, word, i, j, 0, check);
-				if (check) isTrue = true;
-
+				if (check) ans.push_back({i, j});
+				
 			}
 		}
 	}
-	cout << (isTrue ? true : false) << endl;
+	cout<<ans.size()<<endl;
+	if(ans.size())
+		cout<<"Found word in given matrix"<<endl;
+	else cout<<"Cannot find word in given matrix"<<endl;
+	for (auto x : ans) {
+		cout << x[0] << ' ' << x[1] << endl;
+
+	}
 
 	return 0;
 }
