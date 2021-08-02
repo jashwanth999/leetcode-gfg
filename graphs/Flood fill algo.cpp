@@ -4,7 +4,7 @@ using namespace std;
 int oldColor;
 void dfs(vector<vector<int>>& image, int i, int j, int newColor)
 {
-	if (i<0 or j >= image[0].size() or i >= image.size() or image[i][j] != oldColor or           image[i][j] == newColor) return;
+	if (i<0 or j >= image[0].size() or i >= image.size() or image[i][j] != oldColor or image[i][j] == newColor) return;
 	image[i][j] = newColor;
 	dfs(image, i - 1, j, newColor);
 	dfs(image, i + 1, j, newColor);
