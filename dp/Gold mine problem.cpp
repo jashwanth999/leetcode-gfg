@@ -32,7 +32,7 @@ int main()
 
 	for(int i=0;i<n;i++)
 	{
-     ans=max(ans,gold[i][0]);
+              ans=max(ans,gold[i][0]);
 	}
 	cout<<ans<<endl;
 	return 0;

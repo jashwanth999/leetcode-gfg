@@ -6,7 +6,7 @@ int main()
 {
 
 	/*
-	  1. if 0.. n  divide by arr[i] it means we can  arr[i] coins 
+	  1. if 0.. n  divide by arr[i] it means we can make arr[i] coins 
 	  2. if 0..n less than arr[i] just take previous row val
 	  3. else just go to the val where we get j-arr[i]+previous row
 
