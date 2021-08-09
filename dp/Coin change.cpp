@@ -15,7 +15,7 @@ int main()
 	int n=4; // total sum of coins need to be 
 	int S[]={1,2,3};
 	int dp[m][n+1];
-    for(int i =0;i<m;i++) dp[i][0]=1;
+        for(int i =0;i<m;i++) dp[i][0]=1;
 	for(int i=0;i<=n;i++)
 	{
 	    if(i%S[0]==0) dp[0][i]=1;
