@@ -32,7 +32,6 @@ int main()
 	int minCost = INT_MAX;
 	while (!q.empty()) {
 		vector<int> curStation = q.front(); q.pop();
-
 		int curCity = curStation[0];
 		int curCost = curStation[1];
 		int curK = curStation[2];
